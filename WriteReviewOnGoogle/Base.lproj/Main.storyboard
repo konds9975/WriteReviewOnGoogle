@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iVf-DP-2m8">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,102 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="WriteReviewOnGoogle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pgO-Ho-fSp">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pgO-Ho-fSp" secondAttribute="trailing" id="5gW-kq-u2v"/>
+                            <constraint firstItem="pgO-Ho-fSp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Air-OR-Imp"/>
+                            <constraint firstItem="pgO-Ho-fSp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Fxp-9p-UXA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pgO-Ho-fSp" secondAttribute="bottom" id="tdv-Dd-GRd"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="GwV-aJ-cOT"/>
+                    <connections>
+                        <outlet property="webView" destination="pgO-Ho-fSp" id="eAg-sa-G4v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1457" y="-591"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hlu-da-fZS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iVf-DP-2m8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HJD-BR-yxr">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BDg-gE-s6h" kind="relationship" relationship="rootViewController" id="PiT-Lg-97C"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MOP-6x-rrg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-161" y="-591"/>
+        </scene>
+        <!--FirstVC-->
+        <scene sceneID="bGR-y4-rhx">
+            <objects>
+                <viewController id="BDg-gE-s6h" customClass="FirstVC" customModule="WriteReviewOnGoogle" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="A2O-pu-Umd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5h-lM-UDg">
+                                <rect key="frame" x="0.0" y="308.5" width="375" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="0sR-tz-Qqi"/>
+                                </constraints>
+                                <state key="normal" title="Submit Your  Google Review"/>
+                                <connections>
+                                    <action selector="ation:" destination="BDg-gE-s6h" eventType="touchUpInside" id="vsO-nR-qcE"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQK-aa-czk">
+                                <rect key="frame" x="0.0" y="114" width="375" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="h99-4Z-wvq"/>
+                                </constraints>
+                                <state key="normal" title="Select Place"/>
+                                <connections>
+                                    <action selector="areaLocationBtnclicked:" destination="BDg-gE-s6h" eventType="touchUpInside" id="ayE-BB-6gQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fEf-bL-Mrb" firstAttribute="trailing" secondItem="V5h-lM-UDg" secondAttribute="trailing" id="5Ty-Mu-N36"/>
+                            <constraint firstItem="V5h-lM-UDg" firstAttribute="leading" secondItem="fEf-bL-Mrb" secondAttribute="leading" id="Ajz-dX-RTt"/>
+                            <constraint firstItem="V5h-lM-UDg" firstAttribute="centerY" secondItem="A2O-pu-Umd" secondAttribute="centerY" id="EGn-kW-GZV"/>
+                            <constraint firstItem="V5h-lM-UDg" firstAttribute="centerX" secondItem="A2O-pu-Umd" secondAttribute="centerX" id="SCt-db-KAZ"/>
+                            <constraint firstItem="lQK-aa-czk" firstAttribute="top" secondItem="fEf-bL-Mrb" secondAttribute="top" constant="50" id="ZS4-FL-WAs"/>
+                            <constraint firstItem="lQK-aa-czk" firstAttribute="leading" secondItem="fEf-bL-Mrb" secondAttribute="leading" id="kPJ-1W-jtN"/>
+                            <constraint firstItem="lQK-aa-czk" firstAttribute="trailing" secondItem="fEf-bL-Mrb" secondAttribute="trailing" id="ofn-5V-oiC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fEf-bL-Mrb"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wGR-Jq-RbH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tIQ-JD-Kfq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="613.60000000000002" y="-595.05247376311854"/>
         </scene>
     </scenes>
 </document>
